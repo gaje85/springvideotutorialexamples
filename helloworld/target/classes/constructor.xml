@@ -1,0 +1,55 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+ 
+	<bean id="order" class="com.example.constructor.Order"
+	>
+ 
+		<constructor-arg type="java.lang.String">
+			<value>sathish</value>
+		</constructor-arg>
+ 
+		<constructor-arg type="java.lang.String">
+			<value>188</value>
+		</constructor-arg>
+ 
+		<constructor-arg type="int" index="1">
+			<value>40</value>
+		</constructor-arg>
+        </bean>
+        
+        <bean id="orderFact" class="com.example.constructor.OrderFactory"
+        		 factory-method="getOrder">
+ 
+		<constructor-arg type="java.lang.String">
+			<value>sathish</value>
+		</constructor-arg>
+ 
+		<constructor-arg type="int">
+			<value>188</value>
+		</constructor-arg>
+ 
+		<constructor-arg type="java.lang.String">
+			<value>40</value>
+		</constructor-arg>
+        </bean>
+
+  <bean id="orderInstanceFact" class="com.example.constructor.OrderFactory"
+        		 factory-method="getInstanceOrder"
+        		 factory-bean="orderFact">
+ 
+		<constructor-arg type="java.lang.String">
+			<value>sathish</value>
+		</constructor-arg>
+ 
+		<constructor-arg type="int">
+			<value>188</value>
+		</constructor-arg>
+ 
+		<constructor-arg type="java.lang.String">
+			<value>40</value>
+		</constructor-arg>
+        </bean>
+ 
+</beans>

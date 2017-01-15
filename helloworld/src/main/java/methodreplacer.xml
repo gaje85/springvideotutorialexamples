@@ -1,0 +1,68 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:lang="http://www.springframework.org/schema/lang"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd">
+
+ 	<bean id="force-init"
+		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="staticMethod">
+			<value>com.example.methodreplacer.MyClass.initialize</value>
+		</property>
+	</bean>
+<!--  this bean will return java.util.ArrayList -->
+	 <bean id="sysProps"
+		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="targetClass">
+			<value>com.example.methodreplacer.TargetClass</value>
+		</property>
+		<property name="targetMethod">
+			<value>getList</value>
+		</property>
+	</bean>
+
+	<bean id="javaVersion"
+		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean" 
+				depends-on="force-init">
+		<property name="targetObject">
+			<ref bean="sysProps" />
+		</property>
+		<property name="targetMethod">
+			<value>get</value>
+		</property>
+		<property name="arguments">
+			<list>
+				<value>1</value>
+				
+			</list>
+		</property>
+	</bean>
+
+	<bean id="FieldBean" class="com.example.methodreplacer.BeanFieldValue">
+		<property name="isolation">
+			<bean id="java.sql.Connection.TRANSACTION_SERIALIZABLE"
+				class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean" />
+		</property>
+	</bean>
+	<bean id="replacementComputeValue" class="com.example.methodreplacer.ReplacementComputeValue"></bean>
+
+		<bean id="cal" class="com.example.methodreplacer.Calculator" >
+		   <replaced-method name="add"
+			replacer="replacementComputeValue">
+			<arg-type>int</arg-type>
+			<arg-type>int</arg-type>
+		</replaced-method>
+		 <replaced-method name="sub"
+			replacer="replacementComputeValue">
+			<arg-type>int</arg-type>
+			<arg-type>int</arg-type>
+		</replaced-method>
+	</bean>
+	
+</beans>

@@ -1,0 +1,71 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+ 
+	<bean id="customer" class="com.example.collections.Customer">
+ 
+		<!-- java.util.List -->
+		<property name="lists">
+			<list>
+				<value>1</value>
+				<ref bean="PersonBean" />
+				<bean class="com.example.innerbean.Person">
+					<property name="name" value="sathish" />
+					<property name="address" value="address" />
+					<property name="age" value="30" />
+				</bean>
+				<bean class="com.example.innerbean.Person">
+					<property name="name" value="raja" />
+					<property name="address" value="address11111" />
+					<property name="age" value="15" />
+				</bean>
+			</list>
+		</property>
+ 
+		<!-- java.util.Set -->
+		<property name="sets">
+			<set>
+				<value>1</value>
+				<ref bean="PersonBean" />
+				<bean class="com.example.innerbean.Person">
+					<property name="name" value="sathish" />
+					<property name="address" value="address" />
+					<property name="age" value="30" />
+				</bean>
+			</set>
+		</property>
+ 
+		<!-- java.util.Map -->
+		<property name="maps">
+			<map>
+				<entry key="Key 1" value="1" />
+				<entry key="Key 2" value-ref="PersonBean" />
+				<entry key="Key 3">
+					<bean class="com.example.innerbean.Person">
+						<property name="name" value="sathish" />
+						<property name="address" value="address" />
+						<property name="age" value="10" />
+					</bean>
+				</entry>
+			</map>
+		</property>
+ 
+		<!-- java.util.Properties -->
+		<property name="pros">
+			<props>
+				<prop key="admin">admin@nospam.com</prop>
+				<prop key="support">support@nospam.com</prop>
+				
+			</props>
+		</property>
+ 
+	</bean>
+ 
+	<bean id="PersonBean" class="com.example.innerbean.Person">
+		<property name="name" value="sathish" />
+		<property name="address" value="address 1" />
+		<property name="age" value="50" />
+	</bean>
+ 
+</beans>

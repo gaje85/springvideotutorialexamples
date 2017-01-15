@@ -1,0 +1,68 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:lang="http://www.springframework.org/schema/lang"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd">
+ 
+	<context:annotation-config />
+	
+	<context:component-scan base-package="com.example.autowire" />
+	
+<!-- 	<bean 
+class ="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+	 -->
+	<bean name="employee" class="com.example.autowire.Employee" autowire="byType">
+		
+	</bean>
+
+	<bean name="address" class="com.example.autowire.Address">
+		<property name="add" value="First Street">
+	</property>
+	</bean>
+	
+	<bean id="a" class="com.example.autowire.A" autowire="byName">
+		
+	</bean>
+	
+	<bean id="bb"
+		class="com.example.autowire.B">
+	</bean>
+	
+	
+	<bean id="cc"
+		class="com.example.autowire.C">
+	</bean>
+	
+	
+	<bean id="developer" class="com.example.autowire.Developer" autowire="constructor" />
+ 
+	<bean id="language" class="com.example.autowire.Language" >
+		<property name="name" value="Java" />
+	</bean>
+	
+	<bean id="customer" class="com.example.autowire.Customer" autowire="byType" />
+ 
+	<bean id="person1" class="com.example.autowire.Person" >
+		<property name="name" value="c++" />
+	</bean>
+ 
+	<bean id="person2" class="com.example.autowire.Person" >
+		<property name="name" value="java" />
+	</bean> 
+
+</beans>
+
+
+
+
+
+
+
+
+

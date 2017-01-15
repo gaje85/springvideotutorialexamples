@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="jars/aopalliance.jar"/>
+	<classpathentry kind="lib" path="jars/cglib-nodep-2.1_3.jar"/>
+	<classpathentry kind="lib" path="jars/com.springsource.org.aspectj.runtime-1.6.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="jars/commons-collections.jar"/>
+	<classpathentry kind="lib" path="jars/commons-dbcp.jar"/>
+	<classpathentry kind="lib" path="jars/commons-discovery.jar"/>
+	<classpathentry kind="lib" path="jars/commons-logging.jar"/>
+	<classpathentry kind="lib" path="jars/commons-pool.jar"/>
+	<classpathentry kind="lib" path="jars/hibernate-validator-4.2.0.Final.jar"/>
+	<classpathentry kind="lib" path="jars/org.springframework.aop-3.1.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="jars/org.springframework.asm-3.1.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="jars/org.springframework.aspects-3.1.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="jars/org.springframework.beans-3.1.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="jars/org.springframework.context-3.1.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="jars/org.springframework.context.support-3.1.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="jars/org.springframework.core-3.1.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="jars/org.springframework.expression-3.1.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="jars/org.springframework.test-3.1.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="jars/slf4j-api-1.6.4.jar"/>
+	<classpathentry kind="lib" path="jars/validation-api-1.0.0.GA.jar"/>
+	<classpathentry kind="lib" path="jars/xwork-2.1.2.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

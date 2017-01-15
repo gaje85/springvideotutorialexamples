@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd">
+
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/test" />
+		<property name="username" value="root" />
+		<property name="password" value="" />
+	</bean>
+	
+	<bean id="dataSourceHikari" class="com.zaxxer.hikari.HikariDataSource"  destroy-method="close">
+                <property name="dataSourceClassName" value="com.mysql.jdbc.jdbc2.optional.MysqlDataSource"/>
+                <property name="maximumPoolSize" value="5" />
+                <property name="maxLifetime" value="30000" />
+                <property name="idleTimeout" value="30000" />
+                <property name="dataSourceProperties">
+                          <props>
+                              <prop key="url">jdbc:mysql://localhost:3306/test</prop>
+                              <prop key="user">root</prop>
+                              <prop key="password"></prop>
+                              <!--  <beans:prop key="prepStmtCacheSize">250</beans:prop>
+                               <beans:prop key="prepStmtCacheSqlLimit">2048</beans:prop>
+                               <beans:prop key="cachePrepStmts">true</beans:prop>
+                               <beans:prop key="useServerPrepStmts">true</beans:prop>  -->
+                          </props>
+                </property>
+</bean>
+
+	<bean id="jdbcTemp" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource">
+			<ref bean="dataSourceHikari" />
+		</property>
+	</bean>
+<bean id="dao" class="com.training.db.MysqlSpringDAO">
+   <property name="jdbcTemplate" ref="jdbcTemp"></property>
+</bean>
+<bean id="customerDAO" class="com.training.db.JdbcCustomerDAO">
+		<property name="dataSource" ref="dataSourceHikari" />
+	</bean>
+	
+</beans>

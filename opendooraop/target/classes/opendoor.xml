@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+
+<aop:aspectj-autoproxy proxy-target-class="true"></aop:aspectj-autoproxy>
+<bean id="opendoorimpl" class="com.example.opendoor.OpenDoorImpl">
+</bean>
+
+<bean id="aspect" class="com.example.opendoor.KeyAspect">
+</bean>
+
+
+
+	
+	<aop:config>
+		<aop:aspect id="keyaspect" ref="aspect">
+			<aop:pointcut id="opendoorpointcut" 
+		   		expression="execution(* com.example.opendoor.OpenDoor.openDoorWithKey(..))" />
+		   		<aop:pointcut id="opendoorWithPasspointcut" 
+		   		expression="execution(* com.example.opendoor.OpenDoor.openDoorWithPassword(..))" />
+		   		<aop:pointcut id="errpointcut" 
+		   		expression="execution(* com.example.opendoor.OpenDoor.throwErr(..))"/>
+		   		<aop:pointcut id="opendoorwithretpointcut" 
+		   		expression="execution(* com.example.opendoor.OpenDoor.openDoorWithReturn(..))"/>
+
+			<aop:before method="insertKey"
+				pointcut-ref="opendoorpointcut" />
+				<aop:after method="removeKey"
+				pointcut-ref="opendoorpointcut" />
+				
+			<aop:around method="aroundDoor" pointcut-ref="opendoorWithPasspointcut"/>
+			<aop:after-throwing method="catchErr" pointcut-ref="errpointcut" throwing="e"/>	
+			<aop:after-returning method="aftRet" pointcut-ref="opendoorwithretpointcut" returning="ob"/>
+		</aop:aspect>
+	</aop:config>
+</beans>

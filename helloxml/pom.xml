@@ -1,0 +1,44 @@
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.websystique.springmvc</groupId>
+	<artifactId>Spring4MVCHelloWorldDemo</artifactId>
+	<packaging>war</packaging>
+	<version>1.0.0</version>
+	<name>Spring4MVCHelloWorldDemo Maven Webapp</name>
+
+	<properties>
+		<springframework.version>4.0.6.RELEASE</springframework.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+
+		<!-- Below declared dependencies are included for the servers who may complain about servlet/jstl missing dependency -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>javax.servlet.jsp-api</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>Spring4MVCHelloWorldDemo</finalName>
+	</build>
+</project>
