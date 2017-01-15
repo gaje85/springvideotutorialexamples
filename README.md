@@ -9,7 +9,7 @@ This repository has sample code written for Spring video tutorial taken in Tamil
 3. Spring Maven    	  			- 
 4. Spring IOC Architecture			
 5. Spring Hello World – one			
-6. Spring Hello World two			
+6. Spring Hello World – two			
 7. Spring Annotation				
 8. Spring Java Configuration		
 9. Spring Lifecycle – one 			
