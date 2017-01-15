@@ -38,7 +38,7 @@ This repository has sample code written for Spring video tutorial taken in Tamil
 32. Spring MVC-3 			
 33. Spring Boot Intro		
 34. Spring Boot Rest			
-35. Spring Boot 				
+35. Spring Boot REST Example And Content negotiation				
 36. Spring MVC Exception Handling		
 37. Spring Sample Application - 1		
 38. Spring Sample Application – 2		
