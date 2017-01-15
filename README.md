@@ -17,7 +17,7 @@ This repository has sample code written for Spring video tutorial taken in Tamil
 11. Spring Constructor			-
 12. Spring Value injection and Profiles
 13. Spring Qualifier				
-14. Srping Spel				
+14. Spring Spel				
 15. Spring Autowire			
 16. Spring IOC Advanced		
 17. Spring Collections		
