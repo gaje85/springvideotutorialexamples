@@ -1,6 +1,9 @@
 # Spring 4.x Tamil Video Tutorial Samples
 
 This repository has sample code written for Spring video tutorial taken in Tamil language for www.guvi.in .
+https://www.guvi.in/course-detail?course=spring_tam 
+Use Discount code "learnspringintamil" for 10% discount
+
 
 # Spring 4.x Core , AOP ,MVC, Spring Boot and REST
 
